@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                echo 'hello world'
+                sh ./build.sh
+                step([$class: "TapPublisher", testResults: "tap.log"]);
              }
         }
     }
